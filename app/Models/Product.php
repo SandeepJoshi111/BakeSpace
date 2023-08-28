@@ -26,4 +26,11 @@ class Product extends Model
         'meta_keywords',
         'meta_description',
     ];
+
+    // To display category name in product table instead of id
+    public function category(){
+        return $this->belongsTo(Category::class,'cate_id','id'); //fk,pk
+    }
 }
+
+
