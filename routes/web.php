@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AdminFrontendController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Models\Product;
@@ -30,7 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth','isAdmin'])->group(function () {
 
-    Route::get('/dashboard',[FrontendController::class, 'index']);
+    Route::get('/dashboard',[AdminFrontendController::class, 'index']);
 
     // CATEGORIES
     Route::get('/categories',[CategoryController::class, 'index']);

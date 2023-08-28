@@ -18,6 +18,11 @@
 <!-- Styles -->
 <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet" />
 <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet" />
+
+
+{{-- Owl Carousel  --}}
+<link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet" />
     
 
     
@@ -32,10 +37,14 @@
     {{-- Scripts --}}
     <!--   Core JS Files   -->
 
-    <script src="{{asset('frontend/js/bootstrap.bundle.min.js;')}}"></script>
+    <script src="{{asset('frontend/js/jquery-3.7.1.min.js')}}"></script>
+    <script src="{{asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
     
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    
 
     @if(session('status'))
         <script>
