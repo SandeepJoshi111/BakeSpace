@@ -6,8 +6,18 @@ body {
 .back-image {
     height: 92vh;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat !important;
     position: relative;
+}
+.nav-container {
+    background-color: #ec9eb0;
+}
+
+.nav-container a {
+    font-family: "Zeyada", cursive;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #a15f56;
 }
 .home-container {
     background-color: #ffdee7;

@@ -6,13 +6,14 @@
 
 @section('content')
 
-<div class="py-3 mb-4 shadow-sm ">
+<div class="py-3 shadow-sm route-container ">
     <div class="container">
         <h6 class="mb-0"><a href="{{ url('/') }}">Home</a>/
             <a href="{{ url('checkout')}}">Checkout</a>
         </h6>
     </div>
 </div>
+<div class="py-5 home-container">
     <div class="container mt-5 ">
         <form action="{{ url('place-order') }}" method="POST">
             @csrf
@@ -20,7 +21,7 @@
                 <div class="col-md-7">
                     <div class="card">
                         <div class="card-body">
-                            <h6>Basic Details</h6>
+                            <h6 class="subheading-font">Basic Details</h6>
                             <hr>
                             <div class="row checkout-form">
                                 <div class="col-md-6">
@@ -72,7 +73,7 @@
                 <div class="col-md-5">
                     <div class="card">
                         <div class="card-body">
-                        <h6>Order Details</h6>
+                        <h6 class="subheading-font">Order Details</h6>
                         <hr>
                         <table class="table table-stripped table-border">
                             <thead>
@@ -102,4 +103,5 @@
             </div>
         </form>
     </div>
+</div>
 @endsection
