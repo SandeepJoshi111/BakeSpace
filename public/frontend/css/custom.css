@@ -12,7 +12,25 @@ body {
 .home-container {
     background-color: #ffdee7;
     overflow: hidden;
-    height: 90vh;
+    height: 92vh !important;
+}
+.home-container-cakes {
+    background-color: #ffdee7;
+    overflow: hidden;
+    height: 84vh !important;
+}
+.home-container-slug {
+    background-color: #ffdee7;
+    overflow: hidden;
+    height: 84vh !important;
+}
+.route-container,
+.route-container h6,
+.route-container a {
+    background-color: #a15f56;
+    color: white;
+    font-family: "Zeyada", cursive;
+    font-size: 1.2rem;
 }
 .trending-container {
     background-color: #ec9eb0;
@@ -39,7 +57,9 @@ body {
     font-family: "Zeyada", cursive;
     font-size: 1.5rem;
     font-weight: bold;
+    color: #a15f56;
 }
+
 .wave1 {
     position: absolute;
     width: 100vw;
