@@ -53,8 +53,11 @@
                             </div>
                             <div class="cold-md-10">
                                 <br>
-                                <button type="button" class="btn btn-success me-3 float-start ">Add to Wishlist</button>
+                            @if($products->qty>0)
                                 <button type="button" class="btn btn-primary me-3 float-start addToCartBtn">Add to Cart</button>
+                            @else
+                            @endif
+                                <button type="button" class="btn btn-success me-3 float-start ">Add to Wishlist</button>
                             </div>
                         </div>
                     </div>
