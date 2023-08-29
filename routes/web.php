@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [FrontendController::class,'index']);
+Route::get('/category', [FrontendController::class,'category']);
 
 Auth::routes();
 
