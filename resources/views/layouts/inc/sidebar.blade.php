@@ -5,7 +5,7 @@
     Tip 2: you can also add an image using data-image tag
 -->
   <div class="logo"><a href="{{ url('/') }}" class="simple-text logo-normal">
-      BakeSpace
+    <img src="{{ asset('/assets/images/BakeSpace.svg') }}" alt="" width="150px">
     </a></div>
   <div class="sidebar-wrapper">
     <ul class="nav">
