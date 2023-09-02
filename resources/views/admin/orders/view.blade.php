@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('layouts.admin')
 
 @section('title')
     My orders
@@ -10,8 +10,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Order View</h4>
-                    <a href="{{ url('my-orders') }}" class="btn btn-warning float-right">Back</a>
+                    <h4>Order View
+                    <a href="{{ url('orders') }}" class="btn btn-warning float-right">Back</a>
+                </h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -68,6 +69,20 @@
                             </table>
 
                             <h4 class="px-2">Grand Total:<span class="float-end"> {{$orders->total_price}}</span></h4>
+
+                            <div class="mt-2 px-2">
+                            <label for="">Order Status</label>
+                            <form action="{{ url('update-order/'.$orders->id) }}" method="POST">
+                                @csrf 
+                                @method('PUT')
+                                    <select class="form-select form-select-sm" name="order_status" >
+                                        <option {{$orders->status =='0'?'selected' :''}} value="0">Pending</option>
+                                        <option {{$orders->status =='1'?'selected' :''}} value="1">Completed</option>
+                                    </select>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary float-right mt-3 ">Update</button>
+                            </form>
+                            </div>
                         </div>
                     </div>
               
