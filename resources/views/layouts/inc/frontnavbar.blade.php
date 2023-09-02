@@ -13,7 +13,10 @@
             <a class="nav-link {{Request::is('category') ?'active':''}}" href="{{ url('/category') }}">Category</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{Request::is('cart') ?'active':''}}" href="{{ url('/cart') }}">Cart</a>
+            <a class="nav-link {{Request::is('cart') ?'active':''}}" href="{{ url('/cart') }}">
+              Cart
+              <span class="badge badge-pill bg-primary cart-count">0</span>
+            </a>
           </li>
              @guest
               @if (Route::has('login'))
