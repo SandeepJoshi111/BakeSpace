@@ -50,6 +50,9 @@ Route::middleware(['auth'])->group(function (){
 
     Route::get('my-orders',[UserController::class,'index']);
     Route::get('view-order/{id}',[UserController::class,'view']);
+
+
+    Route::post('proceed-to-pay',[CheckoutController::class,'khaltipaycheck']);
 });
 
 

@@ -90,4 +90,37 @@ class CheckoutController extends Controller
 
         return redirect('/')->with('status', 'Order Placed Successfully');
     }
+
+
+    public function khaltipaycheck(Request $request){
+        $cartitems = Cart::where('user_id',Auth::id())->get();  
+        $total_price=0;
+        foreach ($cartitems as $item) {
+            $total_price += $item->products->selling_price * $item->prod_qty;
+        }
+        $firstname = $request->input('firstname');
+        $lastname = $request->input('lastname');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $address1 = $request->input('address1');
+        $address2 = $request->input('address2');
+        $city = $request->input('city');
+        $state = $request->input('state');
+        $country = $request->input('country');
+        $pincode = $request->input('pincode');
+
+        return response()->json([
+            'firstname'=> $firstname,
+            'lastname'=> $lastname,
+            'email'=> $email,
+            'phone'=> $phone,
+            'address1'=> $address1,
+            'address2'=> $address2,
+            'city'=> $city,
+            'state'=> $state,
+            'country'=> $country,
+            'pincode'=> $pincode,
+            'total_price'=> $total_price
+        ]);
+    }
 }
