@@ -92,35 +92,32 @@ class CheckoutController extends Controller
     }
 
 
-    public function khaltipaycheck(Request $request){
-        $cartitems = Cart::where('user_id',Auth::id())->get();  
-        $total_price=0;
-        foreach ($cartitems as $item) {
-            $total_price += $item->products->selling_price * $item->prod_qty;
-        }
-        $firstname = $request->input('firstname');
-        $lastname = $request->input('lastname');
-        $email = $request->input('email');
-        $phone = $request->input('phone');
-        $address1 = $request->input('address1');
-        $address2 = $request->input('address2');
-        $city = $request->input('city');
-        $state = $request->input('state');
-        $country = $request->input('country');
-        $pincode = $request->input('pincode');
+    public function verifypayment(Request $request){
+        $amount =$request->amount;
+        $token =$request->token;
+        $args = http_build_query(array(
+            'token' => $token,
+            'amount'  => $amount
+          ));
+          
+          $url = "https://khalti.com/api/v2/payment/verify/";
+          
+          # Make the call using API.
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL, $url);
+          curl_setopt($ch, CURLOPT_POST, 1);
+          curl_setopt($ch, CURLOPT_POSTFIELDS,$args);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+          
+          $headers = ['Authorization: Key test_secret_key_e75bed6b8ffb4b82b93f34c99a82d142'];
+          curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+          
+          // Response
+          $response = curl_exec($ch);
+          $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+          curl_close($ch);
 
-        return response()->json([
-            'firstname'=> $firstname,
-            'lastname'=> $lastname,
-            'email'=> $email,
-            'phone'=> $phone,
-            'address1'=> $address1,
-            'address2'=> $address2,
-            'city'=> $city,
-            'state'=> $state,
-            'country'=> $country,
-            'pincode'=> $pincode,
-            'total_price'=> $total_price
-        ]);
+          return $response;
     }
+    
 }

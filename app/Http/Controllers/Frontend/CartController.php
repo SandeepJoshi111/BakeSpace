@@ -75,7 +75,7 @@ class CartController extends Controller
                 $cart->prod_qty = $product_qty;
                 $cart->update();
                 return response()->json(['status' => "Quantity Updated"]);
-            }
+        }
         }
         else{
             return response()->json(['status' => "Login to Continue"]);

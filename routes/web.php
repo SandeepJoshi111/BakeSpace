@@ -48,11 +48,14 @@ Route::middleware(['auth'])->group(function (){
     Route::post('place-order',[CheckoutController::class,'placeorder']);
 
 
+    
+    
     Route::get('my-orders',[UserController::class,'index']);
     Route::get('view-order/{id}',[UserController::class,'view']);
+    
+    
+    Route::post('/khalti/payment/verify',[CheckoutController::class,'verifypayment'])->name('khalti.verifypayment');
 
-
-    Route::post('proceed-to-pay',[CheckoutController::class,'khaltipaycheck']);
 });
 
 
